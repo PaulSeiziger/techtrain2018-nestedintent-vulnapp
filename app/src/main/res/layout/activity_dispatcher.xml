@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="positive.on.techtrain2018_nestedintent_vulnapp.DispatcherActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome to your payment application. Please select an action below."
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/goToProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Profile" />
+
+        <Button
+            android:id="@+id/goToTransfer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transfer Money" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

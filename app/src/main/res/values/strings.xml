@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TechTrain2018_NestedIntent_vulnApp</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_transfer">TransferActivity</string>
+</resources>
