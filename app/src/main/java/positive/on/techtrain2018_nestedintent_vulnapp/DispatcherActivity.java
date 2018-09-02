@@ -36,20 +36,29 @@ public class DispatcherActivity extends AppCompatActivity {
     }
 
     public void changePage(String pageName) {
+        IntentTokenSingleton intentTokenSingleton = IntentTokenSingleton.getInstance();
         Intent intent = new Intent(this, DispatcherActivity.class);
         Intent nextIntent = new Intent();
         intent.putExtra("next", nextIntent);
         intent.putExtra("target",pageName);
+        intent.putExtra("token", intentTokenSingleton.getCurrentToken());
         startActivity(intent);
     }
 
     private void dispatchIntent(Intent incoming) {
+        IntentTokenSingleton intentTokenSingleton = IntentTokenSingleton.getInstance();
         Bundle extras = incoming.getExtras();
+
         if(extras != null && extras.containsKey("next")) {
             Intent intent = (Intent) extras.getParcelable("next");
             String targetActivity = extras.getString("target");
-            intent.setComponent(new ComponentName(this,targetActivity));
-            startActivity(intent);
+            String token = extras.getString("token");
+
+            if (intent == null || targetActivity == null || token == null){return;}
+            if (token.equalsIgnoreCase(intentTokenSingleton.getCurrentToken())){
+                intent.setComponent(new ComponentName(this,targetActivity));
+                startActivity(intent);
+            }
         }
     }
 
@@ -58,6 +67,7 @@ public class DispatcherActivity extends AppCompatActivity {
         super.onNewIntent(intent);
         dispatchIntent(intent);
     }
+
 }
 
 
